@@ -49,7 +49,7 @@ module.exports = {
     },
     polygonTest: {
       url: "https://rpc-mumbai.maticvigil.com/", // rpc providers: polygon, infura, alchemy
-      accounts: ['']
+      accounts: []
     },
     polygonMain: {
       url: "https://rpc-mainnet.maticvigil.com", // rpc providers: infura,polygon, alchemy
