@@ -40,17 +40,19 @@ module.exports = {
       url: "http://127.0.0.1:8545",
     },
     rinkeby: {
-      url: "https://eth-mainnet.alchemyapi.io/v2/123abc123abc123abc123abc123abcde",
+      url: "", // rpc providers: infura, alchemy
       accounts: [] // private keys
     },
-    mumbai: {
-      url: "https://rpc-mumbai.matic.today",
-      accounts: []
+    ropsten: {
+      url: "", // rpc providers: infura, alchemy
+      accounts: [] // private keys
     },
-    matic: {
-      // Infura
-      // url: `https://polygon-mainnet.infura.io/v3/${infuraId}`,
-      url: "https://rpc-mainnet.maticvigil.com",
+    polygonTest: {
+      url: "https://rpc-mumbai.maticvigil.com/", // rpc providers: polygon, infura, alchemy
+      accounts: ['']
+    },
+    polygonMain: {
+      url: "https://rpc-mainnet.maticvigil.com", // rpc providers: infura,polygon, alchemy
       accounts: []
     }
   },
