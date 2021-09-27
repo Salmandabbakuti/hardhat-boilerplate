@@ -7,7 +7,9 @@ Try running some of the following tasks:
 ```shell
 npx hardhat node # starts local node
 npx hardhat accounts # list accounts
+npx hardhat balance --account '0x47a9...' # show balance eth of specified account
 npx hardhat compile # compiles contracts
+npx hardhat deploy # deploys contract defined in tasks
 node scripts/deployContract.js
 npx hardhat run --network local scripts/deployContract.js # deplys contract on specified network
 npx hardhat clean
