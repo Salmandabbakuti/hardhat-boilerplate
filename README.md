@@ -1,18 +1,27 @@
-# Basic Sample Hardhat Project
+# hardhat-boilerplate
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts with balances.
 
 Try running some of the following tasks:
 
 ```shell
-npx hardhat node # starts local node
-npx hardhat accounts # list accounts
-npx hardhat balance --account '0x47a9...' # show balance eth of specified account
-npx hardhat compile # compiles contracts
-npx hardhat deploy # deploys contract defined in tasks
-node scripts/deployContract.js
-npx hardhat run --network local scripts/deployContract.js # deplys contract on specified network
-npx hardhat clean
-npx hardhat test
-npx hardhat help
+yarn install
+
+yarn hardhat node # starts local node
+
+yarn hardhat accounts # list accounts with balances
+
+yarn hardhat balance --account '0x47a9...' # show balance eth of specified account
+
+yarn hardhat compile # compiles contracts
+
+yarn hardhat deploy --network local # deploys contract defined in tasks on specified network
+
+yarn hardhat run --network local scripts/deploy.js # deploys contract in scripts/deploy.js
+
+yarn hardhat clean # removes all compiled and deployed artifacts
+
+yarn hardhat test # runs tests
+
+yarn hardhat help # shows help
 ```
