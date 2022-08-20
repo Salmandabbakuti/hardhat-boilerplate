@@ -19,9 +19,9 @@ yarn hardhat deploy --network local # deploys contract defined in tasks on speci
 
 yarn hardhat run --network local scripts/deploy.js # deploys contract in scripts/deploy.js
 
-yarn hardhat clean # removes all compiled and deployed artifacts
-
 yarn hardhat test # runs tests
+
+yarn hardhat clean # removes all compiled and deployed artifacts
 
 yarn hardhat help # shows help
 ```

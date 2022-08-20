@@ -1,7 +1,7 @@
-require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-ethers");
+
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
-
 task("hello", "Prints Hello World", () => console.log("Hello World!"));
 
 task("accounts", "Prints the list of accounts with balances", async () => {
@@ -53,7 +53,7 @@ module.exports = {
     }
   },
   solidity: {
-    version: "0.8.3",
+    version: "0.8.7",
     settings: {
       optimizer: {
         enabled: true,
