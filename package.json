@@ -1,21 +1,20 @@
 {
   "name": "hardhat-boilerplate",
   "version": "1.0.0",
-  "description": "hardhat and ethersjs boilerplate for ethereum development",
+  "description": "hardhat and ethersjs boilerplate for Dapp development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "yarn hardhat test",
+    "compile": "yarn hardhat compile",
+    "deploy": "yarn hardhat deploy"
   },
   "keywords": [],
-  "author": "",
+  "author": "Salman Dabbakuti",
   "license": "ISC",
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.0.2",
-    "@nomiclabs/hardhat-waffle": "^2.0.1",
-    "@nomiclabs/hardhat-web3": "^2.0.0",
-    "chai": "^4.3.4",
-    "ethers": "^5.4.7",
-    "hardhat": "^2.6.4",
-    "web3": "^1.5.3"
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "chai": "^4.3.6",
+    "ethers": "^5.7.0",
+    "hardhat": "^2.10.2"
   }
 }
