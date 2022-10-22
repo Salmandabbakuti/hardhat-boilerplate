@@ -29,6 +29,8 @@ jobs:
           cache: yarn
       - name: "Install packages"
         run: yarn
+      - name: "Rename .env.example to .env"
+        run: mv .env.example .env
       - name: "Start hardhat node"
         run: yarn hardhat node & sleep 3
       - name: "Compile contracts"
