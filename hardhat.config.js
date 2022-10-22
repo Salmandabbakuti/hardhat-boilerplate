@@ -1,4 +1,8 @@
 require("@nomiclabs/hardhat-ethers");
+require('dotenv').config();
+
+// defining accounts to reuse.
+const accounts = process.env.PRIV_KEY ? [process.env.PRIV_KEY] : [];
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -15,7 +19,7 @@ task("accounts", "Prints the list of accounts with balances", async () => {
 });
 
 task("deploy", "Deploys Contract", async () => {
-  const contractFactory = await ethers.getContractFactory("greeter");
+  const contractFactory = await ethers.getContractFactory("Greeter");
   const contract = await contractFactory.deploy("Hello, Hardhat!");
   await contract.deployed();
   console.log("contract deployed at:", contract.address);
@@ -39,21 +43,25 @@ module.exports = {
     local: {
       url: "http://127.0.0.1:8545",
     },
+    main: {
+      url: process.env.ETHEREUM_MAINNET_RPC_URL,
+      accounts: accounts
+    },
     goerli: {
-      url: "", // rpc providers: infura, alchemy
-      accounts: [] // private keys
+      url: process.env.GOERLI_RPC_URL,
+      accounts // private keys
     },
     polygonTest: {
-      url: "", // rpc providers: polygon, infura, alchemy
-      accounts: []
+      url: process.env.POLYGON_MUMBAI_RPC_URL,
+      accounts
     },
     polygonMain: {
-      url: "", // rpc providers: infura,polygon, alchemy
-      accounts: []
+      url: process.env.POLYGON_MAINNET_RPC_URL,
+      accounts
     }
   },
   solidity: {
-    version: "0.8.7",
+    version: "0.8.16",
     settings: {
       optimizer: {
         enabled: true,
