@@ -19,21 +19,21 @@ jobs:
         node-version: [14.x, 16.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-steps:
-  - uses: actions/checkout@v3
-  - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
-    uses: actions/setup-node@v3
-    # uses: borales/actions-yarn@v3.0.0
-    with:
-      node-version: ${{ matrix.node-version }}
-      cache: yarn
-  - name: "Install packages"
-    run: yarn
-  - name: "Start hardhat node"
-    run: yarn hardhat node & sleep 3
-  - name: "Compile Contracts"
-    run: yarn compile
-  - name: "Run tests"
-    run: yarn test
-  - name: "Deploy contracts"
-    run: yarn deploy
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+        uses: actions/setup-node@v3
+        # uses: borales/actions-yarn@v3.0.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+      - name: "Install packages"
+        run: yarn
+      - name: "Start hardhat node"
+        run: yarn hardhat node & sleep 3
+      - name: "Compile Contracts"
+        run: yarn compile
+      - name: "Run tests"
+        run: yarn test
+      - name: "Deploy contracts"
+        run: yarn deploy
