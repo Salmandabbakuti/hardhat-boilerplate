@@ -26,16 +26,20 @@ jobs:
         # uses: borales/actions-yarn@v3.0.0
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
+          cache: npm
       - name: "Install packages"
-        run: yarn
-      - name: "Rename .env.example to .env"
-        run: mv .env.example .env
+        run: npm
+      - name: "Copy .env.example to .env"
+        run: cp .env.example .env
       - name: "Start hardhat node"
-        run: yarn hardhat node & sleep 3
+        run: npx hardhat node & sleep 3
+      - name: "Check for solidity linter errors"
+        run: npx hardhat check
       - name: "Compile contracts"
-        run: yarn compile
+        run: npx compile
+      - name: "Check solidity coverage"
+        run: npx hardhat coverage --network hardhat
       - name: "Run tests"
-        run: yarn test
+        run: npx test
       - name: "Deploy contracts"
-        run: yarn deploy
+        run: npx deploy

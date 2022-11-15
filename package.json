@@ -4,18 +4,19 @@
   "description": "hardhat and ethersjs boilerplate for Dapp development",
   "main": "index.js",
   "scripts": {
-    "test": "yarn hardhat test",
-    "compile": "yarn hardhat compile",
-    "deploy": "yarn hardhat deploy"
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat deploy",
+    "coverage": "npx hardhat coverage --network hardhat"
   },
   "keywords": [],
   "author": "Salman Dabbakuti",
   "license": "ISC",
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.1.1",
-    "chai": "^4.3.6",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.4",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-solhint": "^2.0.0",
     "dotenv": "^16.0.3",
-    "ethers": "^5.7.0",
     "hardhat": "^2.10.2"
   }
 }

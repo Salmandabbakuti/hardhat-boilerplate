@@ -7,23 +7,40 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 Try running some of the following tasks:
 
 ```shell
-yarn install
+npm install
 
-yarn hardhat node # starts local node
+# starts local node
+npx hardhat node
 
-yarn hardhat accounts # list accounts with balances
+# list accounts with balances
+npx hardhat accounts
 
-yarn hardhat balance --account '0x47a9...' # show balance eth of specified account
+# show balance eth of specified account
+npx hardhat balance --account '0x47a9...'
 
-yarn hardhat compile # compiles contracts
+# compile contracts
+npx hardhat compile
 
-yarn hardhat deploy --network local # deploys contract defined in tasks on specified network
+# deploy contract defined in tasks on specified network
+npx hardhat deploy --network local
 
-yarn hardhat run --network local scripts/deploy.js # deploys contract in scripts/deploy.js
+# deploy contract in scripts/deploy.js on specified network
+npx hardhat run scripts/deploy.js --network local
 
-yarn hardhat test # runs tests
+#check linter issues using solhint plugin
+npx hardhat check
 
-yarn hardhat clean # removes all compiled and deployed artifacts
+# check coverage using solidity-coverage plugin: supports hardhat network only
+npx hardhat coverage --network hardhat
 
-yarn hardhat help # shows help
+# unit tests including gas usage
+npx hardhat test
+
+# removes all compiled and deployed artifacts
+npx hardhat clean
+
+# verify contract
+npx hardhat verify --network <deployed network> <deployed contract address> "<constructor1>" "<constructor2>"
+
+npx hardhat help # shows help
 ```
