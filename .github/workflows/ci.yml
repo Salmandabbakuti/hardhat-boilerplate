@@ -36,10 +36,10 @@ jobs:
       - name: "Check for solidity linter errors"
         run: npx hardhat check
       - name: "Compile contracts"
-        run: npx compile
+        run: npm run compile
       - name: "Check solidity coverage"
-        run: npx hardhat coverage --network hardhat
+        run: npm run coverage
       - name: "Run tests"
-        run: npx test
+        run: npm run test
       - name: "Deploy contracts"
-        run: npx deploy
+        run: npm run deploy

@@ -68,7 +68,7 @@ module.exports = {
   },
   gasReporter: {
     enabled: true,
-    currency: "EUR",
+    currency: "USD",
   },
   solidity: {
     version: "0.8.16",
