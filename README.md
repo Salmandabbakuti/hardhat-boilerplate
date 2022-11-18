@@ -36,11 +36,12 @@ npx hardhat coverage --network hardhat
 # unit tests including gas usage
 npx hardhat test
 
-# removes all compiled and deployed artifacts
+# remove all compiled and deployed artifacts
 npx hardhat clean
 
 # verify contract
 npx hardhat verify --network <deployed network> <deployed contract address> "<constructor1>" "<constructor2>"
 
-npx hardhat help # shows help
+# show help
+npx hardhat help
 ```
