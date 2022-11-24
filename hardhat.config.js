@@ -1,4 +1,6 @@
-require("@nomiclabs/hardhat-ethers");
+require('@nomicfoundation/hardhat-toolbox');
+require('@nomicfoundation/hardhat-chai-matchers');
+require("@nomiclabs/hardhat-solhint");
 require('dotenv').config();
 
 // defining accounts to reuse.
@@ -51,7 +53,7 @@ module.exports = {
       url: process.env.GOERLI_RPC_URL,
       accounts // private keys
     },
-    polygonTest: {
+    polygonMumbai: {
       url: process.env.POLYGON_MUMBAI_RPC_URL,
       accounts
     },
@@ -59,6 +61,14 @@ module.exports = {
       url: process.env.POLYGON_MAINNET_RPC_URL,
       accounts
     }
+  },
+  etherscan: {
+    // API key for Polygonscan
+    apiKey: process.env.ETHERSCAN_API_KEY
+  },
+  gasReporter: {
+    enabled: true,
+    currency: "USD",
   },
   solidity: {
     version: "0.8.16",

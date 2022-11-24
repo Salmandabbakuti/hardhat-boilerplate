@@ -1,3 +1,8 @@
+/*
+* This script can only be run through Hardhat, and not through node directly.
+* Since ethers or any other hardhat plugins are globally available to Hardhat Runtime Environment. So we are not importing them explicitly.
+* So when running this script through node, we will get an error saying that ethers or any other plugins not defined error.
+*/
 
 async function main() {
   const contractFactory = await ethers.getContractFactory("Greeter");

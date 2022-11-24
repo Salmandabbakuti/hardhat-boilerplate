@@ -14,6 +14,7 @@ jobs:
   e2e-test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [14.x, 16.x, 18.x]
@@ -26,16 +27,19 @@ jobs:
         # uses: borales/actions-yarn@v3.0.0
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
-      - name: "Install packages"
-        run: yarn
-      - name: "Rename .env.example to .env"
-        run: mv .env.example .env
+      - name: "Install packages with latest npm"
+        run: npm i -g npm@latest && npm install
+      - name: "Copy .env.example to .env"
+        run: cp .env.example .env
       - name: "Start hardhat node"
-        run: yarn hardhat node & sleep 3
+        run: npx hardhat node & sleep 3
+      - name: "Check for solidity linter errors"
+        run: npx hardhat check
       - name: "Compile contracts"
-        run: yarn compile
+        run: npm run compile
+      - name: "Check solidity coverage"
+        run: npm run coverage
       - name: "Run tests"
-        run: yarn test
+        run: npm run test
       - name: "Deploy contracts"
-        run: yarn deploy
+        run: npm run deploy
