@@ -13,12 +13,9 @@ describe("Contract Tests", function () {
   // `before` will run only once, useful for deploying the contract and use it on every test
   // It receives a callback, which can be async.
   before(async () => {
-    // Get the ContractFactory and Signers here.
-    const contractFactory = await ethers.getContractFactory("Greeter");
     accounts = await ethers.getSigners();
-    // Deploy the contract specifying the constructor arguments
-    greeterContract = await contractFactory.deploy("Hello, Hardhat!");
-    await greeterContract.deployed();
+    greeterContract = await ethers.deployContract("Greeter", ["Hello, Hardhat!"], { gasLimit: 1000000 });
+    await greeterContract.waitForDeployment();
   });
 
   it("Should return the new greeting once it's changed", async function () {

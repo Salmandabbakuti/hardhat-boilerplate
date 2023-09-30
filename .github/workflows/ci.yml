@@ -12,16 +12,16 @@ on:
 
 jobs:
   e2e-test:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14.x, 16.x, 18.x, 20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
         uses: actions/setup-node@v3
         # uses: borales/actions-yarn@v3.0.0
@@ -33,6 +33,8 @@ jobs:
         run: cp .env.example .env
       - name: "Start hardhat node"
         run: npx hardhat node & sleep 3
+      - name: "List accounts with balances"
+        run: npx hardhat accounts
       - name: "Check for solidity linter errors"
         run: npx hardhat check
       - name: "Compile contracts"
