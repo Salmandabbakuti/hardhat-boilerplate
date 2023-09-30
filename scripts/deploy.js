@@ -5,15 +5,14 @@
 */
 
 async function main() {
-  const contractFactory = await ethers.getContractFactory("Greeter");
-  const contract = await contractFactory.deploy("Hello, Hardhat!");
-  await contract.deployed();
+  const contract = await ethers.deployContract("Greeter", ["Hello, Hardhat!"]);
+  await contract.waitForDeployment();
   return contract;
 }
 
 main()
   .then(async (contract) => {
-    console.log("Contract deployed at:", contract.address);
+    console.log("Contract deployed at:", contract.target);
     // Write to contract
     const tx = await contract.setGreeting("Hello Ethereum Devs!");
     await tx.wait();

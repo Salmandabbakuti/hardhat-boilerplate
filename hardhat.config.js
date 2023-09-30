@@ -4,7 +4,7 @@ require("@nomiclabs/hardhat-solhint");
 require('dotenv').config();
 
 // defining accounts to reuse.
-const accounts = process.env.PRIV_KEY ? [process.env.PRIV_KEY] : [];
+const accounts = process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [];
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -16,15 +16,14 @@ task("accounts", "Prints the list of accounts with balances", async () => {
 
   for (const account of accounts) {
     const balance = await provider.getBalance(account.address);
-    console.log(`${account.address} - ${ethers.utils.formatEther(balance)} ETH`);
+    console.log(`${account.address} - ${ethers.formatEther(balance)} ETH`);
   }
 });
 
 task("deploy", "Deploys Contract", async () => {
-  const contractFactory = await ethers.getContractFactory("Greeter");
-  const contract = await contractFactory.deploy("Hello, Hardhat!");
-  await contract.deployed();
-  console.log("contract deployed at:", contract.address);
+  const contract = await ethers.deployContract("Greeter", ["Hello, Hardhat!"]);
+  await contract.waitForDeployment();
+  console.log("contract deployed at:", contract.target);
 });
 
 task("balance", "Prints an account's balance")
@@ -32,7 +31,7 @@ task("balance", "Prints an account's balance")
   .setAction(async ({ account }) => {
     const provider = await ethers.provider;
     const balance = await provider.getBalance(account);
-    console.log(hre.ethers.utils.formatEther(balance), "ETH");
+    console.log(ethers.formatEther(balance), "ETH");
   });
 
 
@@ -45,20 +44,12 @@ module.exports = {
     local: {
       url: "http://127.0.0.1:8545",
     },
-    main: {
-      url: process.env.ETHEREUM_MAINNET_RPC_URL,
-      accounts: accounts
-    },
-    goerli: {
-      url: process.env.GOERLI_RPC_URL,
-      accounts // private keys
-    },
-    polygonMumbai: {
-      url: process.env.POLYGON_MUMBAI_RPC_URL,
+    mumbai: {
+      url: process.env.POLYGON_MUMBAI_RPC_URL || "https://rpc-mumbai.maticvigil.com",
       accounts
     },
-    polygonMain: {
-      url: process.env.POLYGON_MAINNET_RPC_URL,
+    polygon: {
+      url: process.env.POLYGON_MAINNET_RPC_URL || "https://rpc-mainnet.maticvigil.com",
       accounts
     }
   },
@@ -71,7 +62,7 @@ module.exports = {
     currency: "USD",
   },
   solidity: {
-    version: "0.8.16",
+    version: "0.8.19",
     settings: {
       optimizer: {
         enabled: true,

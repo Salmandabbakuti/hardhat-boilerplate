@@ -2,7 +2,7 @@
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts with balances.
 
-> Recommended to use Node.js v14+ and npm v7+.
+> Recommended to use Node.js v16+ and npm v8+
 
 > Rename `env.example` to `.env` and add your env specific keys.
 
