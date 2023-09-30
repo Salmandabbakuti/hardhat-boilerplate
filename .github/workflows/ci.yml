@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        node-version: [14.x, 16.x, 18.x, 20.x]
+        node-version: [16.x, 18.x, 20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     runs-on: ${{ matrix.os }}
 
@@ -27,8 +27,8 @@ jobs:
         # uses: borales/actions-yarn@v3.0.0
         with:
           node-version: ${{ matrix.node-version }}
-      - name: "Install packages with latest npm"
-        run: npm i -g npm@latest && npm install
+      - name: "Install packages with npm"
+        run: npm install
       - name: "Copy .env.example to .env"
         run: cp .env.example .env
       - name: "Start hardhat node"
