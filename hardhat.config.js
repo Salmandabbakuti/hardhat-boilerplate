@@ -1,13 +1,18 @@
-require('@nomicfoundation/hardhat-toolbox');
+require('@nomicfoundation/hardhat-toolbox-viem');
 require('dotenv').config();
 
 // defining accounts to reuse.
 const accounts = process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [];
 
 task("deploy", "Deploys Contract", async () => {
-  const contract = await ethers.deployContract("Greeter", ["Hello, Hardhat!"]);
-  await contract.waitForDeployment();
-  console.log("contract deployed at:", contract.target);
+  const [firstWalletClient] = await viem.getWalletClients();
+  const contract = await viem.deployContract("Greeter", ["Hello, Hardhat!"], {
+    walletClient: firstWalletClient, // by default, the first wallet client is used so this is optional
+    // gas: 1000000,
+    // value: parseEther("0.0001"),
+    confirmations: 1, // 1 by default
+  });
+  console.log("contract deployed at:", contract.address);
 });
 
 module.exports = {

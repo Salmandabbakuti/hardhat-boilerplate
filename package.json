@@ -1,7 +1,7 @@
 {
-  "name": "hardhat-boilerplate-minimal",
+  "name": "hardhat-boilerplate-minimal-viem",
   "version": "1.0.0",
-  "description": "Minimal hardhat boilerplate for Dapp development",
+  "description": "Minimal hardhat Viem boilerplate for Dapp development",
   "main": "index.js",
   "scripts": {
     "test": "npx hardhat test",
@@ -12,8 +12,8 @@
   "author": "Salman Dabbakuti",
   "license": "ISC",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomicfoundation/hardhat-toolbox-viem": "^1.0.0",
     "dotenv": "^16.3.1",
-    "hardhat": "^2.17.4"
+    "hardhat": "^2.18.1"
   }
 }
