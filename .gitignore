@@ -26,3 +26,4 @@ cache
 artifacts/
 coverage/
 coverage.json
+.DS_Store
