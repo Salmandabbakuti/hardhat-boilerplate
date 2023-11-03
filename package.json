@@ -1,7 +1,7 @@
 {
   "name": "hardhat-boilerplate",
-  "version": "1.2.0",
-  "description": "hardhat and ethersjs boilerplate for Dapp development",
+  "version": "1.2.2",
+  "description": "Hardhat boilerplate for Dapp development",
   "private": true,
   "scripts": {
     "test": "npx hardhat test",
@@ -15,6 +15,6 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
     "dotenv": "^16.3.1",
-    "hardhat": "^2.17.4"
+    "hardhat": "^2.19.0"
   }
 }

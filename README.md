@@ -1,4 +1,4 @@
-# hardhat-boilerplate
+# Hardhat Boilerplate
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts with balances.
 
@@ -8,7 +8,7 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 Try running some of the following tasks:
 
-```shell
+```bash
 npm install
 
 # starts local node
@@ -26,8 +26,8 @@ npx hardhat compile
 # deploy contract defined in tasks on specified network
 npx hardhat deploy --network local
 
-# deploy contract in scripts/deploy.js on specified network
-npx hardhat run scripts/deploy.js --network local
+# deploy contract in scripts/deploy.ts on specified network
+npx hardhat run scripts/deploy.ts --network local
 
 #check linter issues using solhint plugin
 npx hardhat check
