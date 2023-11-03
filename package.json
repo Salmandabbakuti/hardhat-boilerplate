@@ -1,8 +1,8 @@
 {
   "name": "hardhat-boilerplate-minimal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minimal hardhat boilerplate for Dapp development",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
@@ -13,7 +13,6 @@
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^3.0.0",
-    "dotenv": "^16.3.1",
-    "hardhat": "^2.17.4"
+    "hardhat": "^2.19.0"
   }
 }
