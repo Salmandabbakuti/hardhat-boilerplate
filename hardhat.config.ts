@@ -5,9 +5,9 @@ const accounts = vars.has("PRIVATE_KEY") ? [vars.get("PRIVATE_KEY")] : [];
 
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
-  defaultNetwork: "local",
+  defaultNetwork: "localhost",
   networks: {
-    local: {
+    localhost: {
       url: "http://127.0.0.1:8545"
     },
     mumbai: {
