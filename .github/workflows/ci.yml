@@ -31,16 +31,16 @@ jobs:
         run: npm install
       - name: "Copy .env.example to .env"
         run: cp .env.example .env
-      - name: "Start hardhat node"
-        run: npx hardhat node & sleep 3
-      - name: "List accounts with balances"
-        run: npx hardhat accounts
       - name: "Check for solidity linter errors"
         run: npx hardhat check
       - name: "Compile contracts"
         run: npm run compile
       - name: "Check solidity coverage"
         run: npm run coverage
+      - name: "Start hardhat node"
+        run: npx hardhat node & sleep 5
+      - name: "List accounts with balances"
+        run: npx hardhat accounts
       - name: "Run tests"
         run: npm run test
       - name: "Deploy contracts"

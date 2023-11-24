@@ -43,12 +43,12 @@ task("balance", "Prints an account's balance")
   });
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "local",
+  defaultNetwork: "localhost",
   networks: {
     hardhat: {
       chainId: 1337
     },
-    local: {
+    localhost: {
       url: "http://127.0.0.1:8545"
     },
     mumbai: {

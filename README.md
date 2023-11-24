@@ -24,10 +24,10 @@ npx hardhat balance --account '0x47a9...'
 npx hardhat compile
 
 # deploy contract defined in tasks on specified network
-npx hardhat deploy --network local
+npx hardhat deploy --network localhost
 
 # deploy contract in scripts/deploy.ts on specified network
-npx hardhat run scripts/deploy.ts --network local
+npx hardhat run scripts/deploy.ts --network localhost
 
 #check linter issues using solhint plugin
 npx hardhat check
