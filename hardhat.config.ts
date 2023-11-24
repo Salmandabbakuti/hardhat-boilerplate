@@ -23,7 +23,7 @@ task(
 
 task("deploy", "Deploys Contract", async (_, hre) => {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 300;
+  const unlockTime = currentTimestampInSeconds + 365 * 24 * 60 * 60; // 1 year from now
   const lockedAmount = hre.ethers.parseEther("0.001");
 
   const lockInstance = await hre.ethers.deployContract("Lock", [unlockTime], {

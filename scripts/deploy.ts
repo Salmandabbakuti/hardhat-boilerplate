@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 300;
+  const unlockTime = currentTimestampInSeconds + 365 * 24 * 60 * 60; // 1 year from now
   const lockedAmount = ethers.parseEther("0.001");
 
   const lockInstance = await ethers.deployContract("Lock", [unlockTime], {

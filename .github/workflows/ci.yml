@@ -44,4 +44,4 @@ jobs:
       - name: "Run tests"
         run: npm run test
       - name: "Deploy contracts"
-        run: npm run deploy
+        run: npx hardhat run scripts/deploy.ts --network localhost
