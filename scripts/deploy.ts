@@ -5,23 +5,23 @@ async function main() {
   const unlockTime = currentTimestampInSeconds + 60;
   const lockedAmount = ethers.parseEther("0.001");
 
-  const lockInstance = await ethers.deployContract("Lock", [unlockTime], {
+  const contractInstance = await ethers.deployContract("Lock", [unlockTime], {
     value: lockedAmount
   });
 
-  await lockInstance.waitForDeployment();
-  return lockInstance;
+  await contractInstance.waitForDeployment();
+  return contractInstance;
 }
 
 main()
-  .then(async (lockInstance) => {
-    console.log("Lock Contract deployed to:", lockInstance.target);
+  .then(async (contractInstance) => {
+    console.log("Contract deployed to:", contractInstance.target);
     // Read from the contract
-    const unlockTime = await lockInstance.unlockTime();
+    const unlockTime = await contractInstance.unlockTime();
     console.log("Unlock time:", unlockTime.toString());
 
     // Write to the contract
-    // const tx = await lockInstance.withdraw();
+    // const tx = await contractInstance.withdraw();
     // await tx.wait();
     // console.log("Withdrawn!");
   })

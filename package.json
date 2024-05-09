@@ -1,7 +1,7 @@
 {
   "name": "hardhat-boilerplate-minimal",
-  "version": "1.0.1",
-  "description": "Minimal hardhat boilerplate for Dapp development",
+  "version": "1.2.3",
+  "description": "Minimal hardhat boilerplate for dapp development",
   "private": true,
   "scripts": {
     "test": "npx hardhat test",
@@ -12,7 +12,7 @@
   "author": "Salman Dabbakuti",
   "license": "ISC",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
-    "hardhat": "^2.19.1"
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.3"
   }
 }
