@@ -21,7 +21,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
         uses: actions/setup-node@v4
         # uses: borales/actions-yarn@v3.0.0
